@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container p-5">
+        
+        {% if nombre %}
+        
+        <h1 class="mb-4">Se encontraron los siguientes mensajes</h1>
+
+        {% for msj in mensajes %}
+
+        <div class="border col-5 rounded p-3 mb-3">
+            <ul class="list-unstyled">
+                <li>Remitente: {{msj.nombre}}</li>
+                <li>Email: {{msj.email}}</li>
+                <li>Asunto: {{msj.asunto}}</li>
+                <li>Mensaje: {{msj.mensaje}}</li>
+            </ul>
+        </div>
+
+        
+
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

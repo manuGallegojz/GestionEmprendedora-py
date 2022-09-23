@@ -1,0 +1,253 @@
+@import "generalidades";
+
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; }
+
+
+/*estructura_de_la_pagina*/
+
+body{
+  color: #3c4858;
+}
+
+/*tipografias*/
+
+.serif{
+  font-family: $fuente-serif;
+}
+
+.sanserif{
+  font-family: $fuente-sanserif;
+}
+
+.rosa{
+    color: $color-rosa;
+}
+
+.verde{
+  color: $color-verde;
+}
+
+/*--------------------inicio--------------------*/
+
+/*---------------imagenes---------------*/
+
+@each $imagen1 in header-imagen, fondo_encontranos{
+
+  .#{$imagen1}{
+    background-image: url(../imagenes/#{$imagen1}.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  }
+
+@each $imagen2 in quienes-somos, cafe-virtual{
+
+  .#{$imagen2}{
+    background-image:
+    linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url(../imagenes/#{$imagen2}.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+
+}
+
+.opacidad:hover {
+  opacity: 0.7;
+  transition: opacity 150ms ease-in 20ms;
+  // transition: opacity  200ms ease-in;
+  // transition-delay: 20ms;
+}
+
+.opacidad:not(:hover) {
+  opacity: 1;
+  transition: opacity 150ms ease-in 20ms;
+  // transition: opacity  200ms ease-in;
+  // transition-delay: 20ms;
+}
+
+/*---------------header---------------*/
+
+  .mostrar_logo{
+  display: initial;
+}
+  
+.navbar>.container-fluid{
+  display: initial;
+}
+
+.logo {
+  width: $tamaño / 1.5;
+  }
+
+  .logo_02{
+  width: 150px;
+  } 
+
+.mostrar{
+  display:none;
+}
+
+.icono {
+  width: $tamaño / 5.5;}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $color-verde;
+}
+
+.nav-link{
+  color: $color-verde;
+  &:hover{
+    color: #63aa9c;
+  }
+}
+
+/*---------------footer---------------*/
+
+footer {
+  background-color: #323437;
+}
+
+.logo_footer{
+  @extend .icono;
+}
+
+.separador{
+  height: 1px;
+  background-color: rgb(122, 122, 122);
+}
+
+.instagram{
+  width: $tamaño / 10;
+}
+
+/*--------------------servicios--------------------*/
+
+.btn-primary {
+  color: #fff;
+  background-color: $color-verde;
+  border-color: $color-verde;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #63aa9c;
+  border-color: #63aa9c;
+}
+
+/*--------------------servicios--------------------*/
+
+.texto_servicios{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*--------------------equipo--------------------*/
+
+.caras{
+  width: $tamaño / 2;
+}
+
+.instagram_equipo{
+  width: $tamaño / 8;
+}
+
+  /*-----responsive-----*/
+
+  @media screen and (max-width: 1024px) {
+
+    .logo{
+      width: $tamaño / 1.5;
+    }
+
+    .fondo_encontranos{
+      background-image: url(../imagenes/contacto-768-02.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+      }
+
+  @media screen and (max-width: 768px) {
+
+    .mostrar_logo{
+      display: none;
+    }
+    
+    .header-imagen {
+      background-image: url(../imagenes/header-768-04.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+
+      .mostrar{
+        display:initial;
+      }
+
+      .logo{
+        width: $tamaño / 3;
+      }
+
+      .fondo_encontranos{
+        background-image: url(../imagenes/contacto-02.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+      .navbar>.container-fluid{
+        display: flex;
+      }
+
+  }
+
+  @media screen and (max-width: 576px) {
+
+    @each $imagen2 in quienes-somos, cafe-virtual{
+
+      .#{$imagen2}{
+        background-image:
+        linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../imagenes/#{$imagen2}.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: black;
+      background-position: center;
+    }
+    
+    }
+    
+    .header-imagen {
+      background-image: url(../imagenes/header-03.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      }
+
+      .mostrar{
+        display:initial;
+      }
+
+      .logo{
+        width: $tamaño / 5;
+      }
+
+      .fondo_encontranos{
+        background-image: url("../imagenes/contacto-03.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+  }

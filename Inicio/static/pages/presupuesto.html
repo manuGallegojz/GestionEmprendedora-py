@@ -1,0 +1,178 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+
+        
+        <!----formulario---->
+
+
+        <form class="container mt-5 sanserif" action="/presupuesto/" method="GET"> {% csrf_token %}
+
+            <!----nombre_y_apellido---->
+        
+            <div class="row mb-2">
+        
+                <!----nombre---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="nombre" class="text-center">Nombre:</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre">
+        
+                </div>
+        
+                <!----apellido---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="apellido">Apellido:</label>
+                    <input class="form-control" type="text" name="apellido" id="apellido">
+        
+                </div>
+        
+            </div>
+        
+            <!----email_y_whatsapp---->
+        
+            <div class="row mb-2">
+        
+                <!----email---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email">
+        
+                </div>
+        
+                <!----whatsapp---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="whatsapp">Whatsapp:</label>
+                    <input class="form-control" type="text" name="whatsapp" id="whatsapp">
+                
+                </div>
+        
+            </div>   
+        
+                <!----instagram---->
+        
+                    <label for="instagram">Instagram / Web Comercial:</label>
+                    <input class="form-control mb-3 mb-lg-0" type="text" name="instagram" id="instagram">
+        
+            <!----provincia/localidad_y_negocio---->
+        
+            <div class="row mb-2">
+        
+                <!----provincia/localidad---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="localidad">¿De dónde sos? (provincia y localidad)</label>
+                    <input class="form-control" type="text" name="localidad" id="localidad">
+        
+                </div>    
+        
+                <!----negocio---->
+        
+                <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="negocio">¿Tenés negocio y/o vendés por internet?</label>
+                    <input class="form-control" type="text" name="negocio" id="negocio">
+        
+                </div>
+        
+            </div>
+        
+            <!----actividad_y_listas_despegables---->
+        
+            <div class="row mb-2">
+        
+                <!----actividad---->
+                
+            <div class="form-group col-lg-6 col-sm-12 col-12 mb-3 mb-lg-0">
+        
+                    <label for="actividad">¿Que actividad/es haces?</label>
+                    <textarea class="form-control h-100" name="actividad" id="actividad"></textarea>
+        
+            </div>
+        
+            <!----listas_despegables---->
+        
+            <div class="form-group col-lg-6 col-sm-12 col-12 mt-4">
+        
+                    <label for="label_sobre_que_necesitas_presupuesto">¿Sobre qué necesitas presupuesto?</label>
+                    <select class="form-select mb-3 mb-lg-0" name="sobre_que_necesitas_presupuesto" id="label_sobre_que_necesitas_presupuesto">
+                    
+                        <option name= "A_inscripción">Inscripción</option>
+                        
+                        <option name= "A_abono_mensual">Abono Mensual</option>
+                        
+                        <option name= "A_inscripción_abono_mensual">Inscripción + Abono Mensual</option>
+                        
+                        <option name= "A_deudas">Regularización de Deudas</option>
+                        
+                        <option name= "A_costos">Planificación de Costos</option>
+                        
+                        <option name= "A_otros">Otros(Contanos al Final)</option>
+        
+                    </select>
+        
+                    <label for="label_donde_vas_a_trabajar">¿Dónde vas a trabajar?</label>
+                    <select class="form-select mb-3 mb-lg-0" name="donde_vas_a_trabajar" id="label_donde_vas_a_trabajar">
+                        
+                        <option name= "B_una">Solo en la jurisdicción dónde vivo</option>
+                        
+                        <option name= "B_muchas">En mas de una jurisdicción</option>
+                        
+                    </select>
+        
+                    <label for="label_vendes_al_exterior">¿Vendés al exterior?</label>
+                    <select class="form-select mb-3 mb-lg-0" name="vendes_al_exterior" id="label_vendes_al_exterior">
+                        
+                        <option name= "C_si_exterior">Si vendo al exterior</option>
+                        
+                        <option name= "C_no_exterior">No vendo al exterior</option>
+                        
+                    </select>
+        
+                    <label for="label_trabajas_bajo_relacion_de_dependencia">¿Trabajás bajo relación de dependencia?</label>
+                    <select class="form-select mb-3 mb-lg-0" name="trabajas_bajo_relacion_de_dependencia" id="label_trabajas_bajo_relacion_de_dependencia">
+                        
+                        <option name= "D_si_dependencia">Sí, trabajo bajo relación de dependencia</option>
+                        
+                        <option name= "D_no_dependencia">No, no trabajo bajo relación de dependencia</option>
+                        
+                    </select>
+        
+                    <label for="label_vendés_algun_producto_por_arriba_de_$39.000">¿Vendés algún producto por arriba de $ 39.000?</label>
+                    <select class="form-select mb-3 mb-lg-0" name="vendes_algun_producto_por_arriba_de_$39.000" id="label_vendes_algún_producto_por_arriba_de_$39.000">
+                        
+                        <option name= "E_si_39000">Sí, vendo productos por mas de $ 39.000</option>
+                        
+                        <option name= "E_no_39000">No, no productos por mas de $ 39.000</option>
+                        
+                    </select>
+        
+            </div>
+                
+            </div>
+                
+                <!----expectativas---->
+        
+                    <label class="mt-md-4 mt-sm-4" for="expectativas">¿Cuál es tu expectativa al contratar un servicio contable/impositivo?</label>
+                    <textarea class="form-control mb-3 mb-lg-0" name="esxpectativas" id="expectativas"></textarea>
+        
+                <!----comentarios---->
+        
+                    <label for="comentarios">Comentarios adicionales</label>
+                    <textarea class="form-control" name="comentarios" id="comentarios"></textarea>
+        
+                <!----enviar---->
+        
+                    <input type="submit" value="Enviar" class="btn btn-primary mt-5 mb-5 col-12">
+        
+        </form>
+
+        {% endblock %}
